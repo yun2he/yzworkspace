@@ -57,7 +57,7 @@ function displayProducts() {
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <p class="price">$${product.price.toFixed(2)}</p>
-            <button onclick="location.href='product-detail.html?id=${product.id}'">View Details</button>
+            <button class="view-details-btn" onclick="location.href='product-detail.html?id=${product.id}'">View Details</button>
         `;
         productGrid.appendChild(productElement);
     });
