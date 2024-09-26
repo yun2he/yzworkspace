@@ -26,6 +26,10 @@
     --card-background: #FFFFFF;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -46,16 +50,25 @@ header {
     background-color: var(--secondary-color);
     color: white;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--main-color);
     text-transform: uppercase;
     letter-spacing: 1px;
-    /* Add text shadow to create a border effect */
     text-shadow: 
         -1px -1px 0 #000,  
          1px -1px 0 #000,
@@ -63,27 +76,50 @@ header h1 {
          1px  1px 0 #000;
 }
 
+.search-bar {
+    width: 350px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 1rem;
+    margin: 0;
     display: flex;
-    justify-content: flex-end;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 1rem;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: var(--main-color);
+.banner {
+    height: 300px; /* Adjust as needed */
+    background-color: #ddd; /* Placeholder color */
+    background-image: url('path-to-your-banner-image.jpg'); /* Add your banner image */
+    background-size: cover;
+    background-position: center;
 }
 
 main {
@@ -95,15 +131,16 @@ main {
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
 }
 
 .product-item {
     background-color: var(--card-background);
     border: 1px solid #ddd;
+    border-radius: 10px;
     padding: 20px;
-    width: 280px;
+    width: calc(33.333% - 20px);
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -134,12 +171,13 @@ main {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(163, 28, 28, 0.7);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
     z-index: 10;
+    font-size: 18px;
 }
 
 .gallery-arrow.left {
@@ -150,12 +188,75 @@ main {
     right: 10px;
 }
 
+h2, h3 {
+    font-family: "Josefin Sans", sans-serif;
+    color: var(--main-color);
+}
+
+button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: white;
     text-align: center;
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+}
+
+/* Tablet Layout */
+@media screen and (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    header h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .search-bar {
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    /* ... other tablet styles ... */
+}
+
+/* Mobile Layout */
+@media screen and (max-width: 480px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem;
+    }
+
+    /* ... other mobile styles ... */
 }
