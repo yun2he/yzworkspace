@@ -10,7 +10,14 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 50px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e7e7e7;
 }
 
 .content {
@@ -25,10 +32,11 @@ body, html {
 }
 
 #home {
+  flex: 1;
+  overflow-y: auto; /* 允许垂直滚动 */
+  -webkit-overflow-scrolling: touch; /* 为 iOS 设备提供平滑滚动 */
   height: calc(100vh - 60px); /* 减去标签栏的高度 */
-  overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* 对于 Firefox */
   -ms-overflow-style: none; /* 对于 Internet Explorer 和 Edge */
   #home::-webkit-scrollbar {
@@ -37,24 +45,37 @@ body, html {
 }
 
 .products-slider {
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0;
 }
 
 .product-container {
-  scroll-snap-align: start;
   width: 390px;
   height: 604px;
-  max-height: 90vh; /* 确保不超过视口高度的 90% */
+  max-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 改为 space-between */
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 5px 0;
+}
+
+/* 添加分界线 */
+.product-container:not(:last-child) {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .product-image-slider {
   flex-grow: 1;
+  width: 100%;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -82,9 +103,9 @@ body, html {
 }
 
 .product-price {
+  width: 100%;
   text-align: center;
   padding: 10px 0;
-  margin-bottom: 10px; /* 添加底部边距 */
 }
 
 .product-price p {
@@ -94,13 +115,9 @@ body, html {
 }
 
 nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px; /* 确保这里定义了高度 */
+  height: 60px;
   background-color: #fff;
-  z-index: 1000;
+  border-top: 1px solid #e7e7e7;
 }
 
 nav ul {
