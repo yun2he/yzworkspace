@@ -57,14 +57,7 @@ body, html {
   box-sizing: border-box;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 5px 0;
-}
-
-/* 添加分界线 */
-.product-container:not(:last-child) {
-  border-bottom: 1px solid black;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  margin: 15px 0;
 }
 
 .product-image-slider {
