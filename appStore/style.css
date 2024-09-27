@@ -15,9 +15,8 @@ body, html {
 
 .content {
   display: none;
-  height: calc(100vh - 60px); /* 减去导航栏的高度 */
-  width: 100%;
-  position: relative; /* 添加这行 */
+  height: calc(100vh - 60px);
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -50,14 +49,31 @@ body, html {
   justify-content: space-between; /* 改为 space-between */
   padding: 20px;
   box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.product-image-slider {
+  flex-grow: 1;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.product-image-slider::-webkit-scrollbar {
+  display: none;
 }
 
 .product-image {
-  flex-grow: 1;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .product-image img {
@@ -130,21 +146,4 @@ nav ul li.active i {
   text-align: center;
   color: #333;
   padding-top: 20px;
-}
-
-/* 更新 .placeholder-content 样式 */
-.placeholder-content {
-  position: absolute; /* 改为绝对定位 */
-  top: 50%; /* 从顶部 50% 开始 */
-  left: 50%; /* 从左侧 50% 开始 */
-  transform: translate(-50%, -50%); /* 向上和向左移动自身的 50% */
-  text-align: center;
-  width: 100%; /* 确保宽度为 100% */
-}
-
-.placeholder-content h2 {
-  font-size: 24px;
-  color: #333;
-  margin: 0; /* 移除默认边距 */
-  padding: 20px; /* 添加一些内边距 */
 }
