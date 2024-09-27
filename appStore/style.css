@@ -51,8 +51,6 @@ body, html {
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
-  margin-bottom: 5px;
-  margin-top: 5px;
 }
 
 .product-image-slider {
@@ -86,7 +84,7 @@ body, html {
 .product-price {
   text-align: center;
   padding: 10px 0;
-  margin-bottom: 25px; /* 添加底部边距 */
+  margin-bottom: 10px; /* 添加底部边距 */
 }
 
 .product-price p {
