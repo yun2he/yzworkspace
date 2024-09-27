@@ -14,12 +14,6 @@ body, html {
   flex-direction: column;
 }
 
-header {
-  height: 50px;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #e7e7e7;
-}
-
 .content {
   display: none;
   height: calc(100vh - 60px);
