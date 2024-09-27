@@ -31,9 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         productsSlider.appendChild(productElement);
     });
 
-    // 设置 products-slider 的宽度
-    productsSlider.style.width = `${products.length * 100}vw`;
-
     // 标签页导航功能
     listItems.forEach((item, idx) => {
         item.addEventListener('click', () => {
@@ -52,40 +49,75 @@ document.addEventListener('DOMContentLoaded', function() {
         listItems.forEach(item => item.classList.remove('active'));
     }
 
-    // 触摸滑动功能
-    let startX, moveX;
-    let isDragging = false;
-    let startScrollLeft;
+    // 滑动功能
+    let startY, currentY, isDragging = false;
+    let startScrollTop, currentScrollTop;
+    let lastTime, currentTime, timeDiff;
+    let lastScrollTop, scrollDiff, velocity;
 
-    homeContent.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
+    function handleStart(e) {
+        startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
         isDragging = true;
-        startScrollLeft = homeContent.scrollLeft;
-    });
+        startScrollTop = homeContent.scrollTop;
+        lastTime = Date.now();
+        lastScrollTop = startScrollTop;
+        cancelAnimationFrame(momentumID);
+    }
 
-    homeContent.addEventListener('touchmove', (e) => {
+    function handleMove(e) {
         if (!isDragging) return;
-        e.preventDefault();
-        moveX = e.touches[0].clientX;
-        const x = moveX - startX;
-        homeContent.scrollLeft = startScrollLeft - x;
-    });
+        currentY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+        currentScrollTop = startScrollTop + (startY - currentY);
+        homeContent.scrollTop = currentScrollTop;
 
-    homeContent.addEventListener('touchend', () => {
+        currentTime = Date.now();
+        timeDiff = currentTime - lastTime;
+        scrollDiff = currentScrollTop - lastScrollTop;
+
+        if (timeDiff > 0) {
+            velocity = scrollDiff / timeDiff;
+        }
+
+        lastTime = currentTime;
+        lastScrollTop = currentScrollTop;
+    }
+
+    function handleEnd() {
+        if (!isDragging) return;
         isDragging = false;
-        const scrollWidth = homeContent.scrollWidth;
-        const scrollLeft = homeContent.scrollLeft;
-        const clientWidth = homeContent.clientWidth;
-        
-        // 计算最接近的商品索引
-        const nearestIndex = Math.round(scrollLeft / clientWidth);
-        
-        // 滚动到最接近的商品
+        momentum();
+    }
+
+    let momentumID;
+    function momentum() {
+        if (Math.abs(velocity) > 0.1) {
+            currentScrollTop += velocity * 15;
+            velocity *= 0.95;
+            homeContent.scrollTop = currentScrollTop;
+            momentumID = requestAnimationFrame(momentum);
+        } else {
+            snapToNearest();
+        }
+    }
+
+    function snapToNearest() {
+        const containerHeight = homeContent.clientHeight;
+        const nearestIndex = Math.round(homeContent.scrollTop / containerHeight);
         homeContent.scrollTo({
-            left: nearestIndex * clientWidth,
+            top: nearestIndex * containerHeight,
             behavior: 'smooth'
         });
-    });
+    }
+
+    homeContent.addEventListener('touchstart', handleStart);
+    homeContent.addEventListener('touchmove', handleMove);
+    homeContent.addEventListener('touchend', handleEnd);
+
+    // 为非触摸设备添加鼠标事件
+    homeContent.addEventListener('mousedown', handleStart);
+    homeContent.addEventListener('mousemove', handleMove);
+    homeContent.addEventListener('mouseup', handleEnd);
+    homeContent.addEventListener('mouseleave', handleEnd);
 
     // 检查图片是否加载成功
     products.forEach((product) => {
