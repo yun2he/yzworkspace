@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物寄养管理系统 - 客户管理</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>furryBnB</h1>
+    </header>
+
+    <main>
+        <section id="customers">
+            <h2>客户管理</h2>
+            <form id="customer-form">
+                <div class="form-group">
+                    <label for="pet-name">宠物名称：</label>
+                    <input type="text" id="pet-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-name">主人姓名：</label>
+                    <input type="text" id="owner-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">电话：</label>
+                    <input type="tel" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱：</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="address">地址：</label>
+                    <textarea id="address"></textarea>
+                </div>
+                <input type="hidden" id="editing-id">
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">添加客户</button>
+                    <button type="button" id="cancel-btn" style="display:none;">取消</button>
+                </div>
+            </form>
+            <div class="customers-list-container">
+                <h3>客户列表</h3>
+                <ul id="customers-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <nav id="bottom-nav">
+        <a href="index.html" class="nav-btn">预订</a>
+        <a href="customers.html" class="nav-btn active">客户</a>
+        <a href="calendar.html" class="nav-btn">日历</a>
+    </nav>
+
+    <script src="customers.js"></script>
+</body>
+</html>

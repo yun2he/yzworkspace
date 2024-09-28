@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>宠物寄养管理系统 - 预订</title>
+      <link rel="stylesheet" href="styles.css">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <header>
+          <h1>宠物管理局</h1>
+      </header>
+
+      <main id="main-content">
+          <section id="bookings" class="page active">
+            <h2>预订管理</h2>
+              <form id="booking-form" class="booking-form">
+                  <h3>新建预订</h3>
+                  <div class="form-group">
+                      <label for="customer-select">选择客户：</label>
+                      <select id="customer-select" required>
+                          <option value="">-- 选择客户 --</option>
+                          <option value="new">-- 新客户 --</option>
+                          <!-- 其他客户选项将通过 JavaScript 动态添加 -->
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="pet-name">宠物名称：</label>
+                      <input type="text" id="pet-name" name="pet-name" required readonly>
+                  </div>
+                  <div class="form-group">
+                      <label for="owner-name">主人姓名：</label>
+                      <input type="text" id="owner-name" name="owner-name" required readonly>
+                  </div>
+                  <!-- 其他预订表单字段 -->
+                  <div class="form-group">
+                      <label for="start-date">开始日期：</label>
+                      <input type="date" id="start-date" name="start-date" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="end-date">结束日期：</label>
+                      <input type="date" id="end-date" name="end-date" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="notes">备注：</label>
+                      <textarea id="notes" name="notes"></textarea>
+                  </div>
+                  <input type="hidden" id="editing-index" value="">
+                  <button type="submit" class="btn-submit" id="submit-btn">提交预订</button>
+                  <button type="button" class="btn-cancel" id="cancel-btn" style="display:none;">取消编辑</button>
+              </form>
+
+              <div class="booking-list">
+                  <h3>现有预订</h3>
+                  <div class="booking-controls">
+                      <select id="sort-by">
+                          <option value="startDate">开始日期</option>
+                          <option value="endDate">结束日期</option>
+                          <option value="petName">宠物名称</option>
+                      </select>
+                      <button id="sort-order">↓</button>
+                      <select id="filter-by">
+                          <option value="all">全部预订</option>
+                          <option value="current">当前预订</option>
+                          <option value="upcoming">即将到来</option>
+                          <option value="past">已结束</option>
+                      </select>
+                  </div>
+                  <ul id="bookings-list">
+                      <!-- 预订项将通过 JavaScript 动态添加 -->
+                  </ul>
+              </div>
+              <!-- 这里放置所有预订相关的内容 -->
+          </section>
+      </main>
+
+      <nav id="bottom-nav">
+          <a href="index.html" class="nav-btn active">预订</a>
+          <a href="customers.html" class="nav-btn">客户</a>
+          <a href="calendar.html" class="nav-btn">日历</a>
+      </nav>
+
+      <script src="bookings.js"></script>
+  </body>
+</html>
