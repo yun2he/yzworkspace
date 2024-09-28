@@ -80,7 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
             li.innerHTML = `
                 <div class="booking-info">
                     <div class="booking-main-info">
-                        ${booking.petName} (${booking.ownerName}) - ${formatDate(booking.startDate)} - ${formatDate(booking.endDate)} | ${days}天
+                        ${booking.petName} (${booking.ownerName}) 
+                    </div>
+                    <div class="booking-dates">
+                        ${formatDate(booking.startDate)}-${formatDate(booking.endDate)} (${days}晚)
                     </div>
                     <div class="booking-notes">
                         ${booking.notes ? booking.notes : '无备注'}

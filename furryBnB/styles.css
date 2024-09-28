@@ -19,7 +19,7 @@ body {
 
 /* 头部样式 */
 header {
-    background-color: #4a90e2;
+    background-color: #8A2BE2;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -69,7 +69,7 @@ section {
 }
 
 section h2 {
-    color: #4a90e2;
+    color: #9370DB;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
 }
@@ -142,12 +142,17 @@ footer {
 }
 
 .btn-submit {
-    background-color: #007bff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+    width: 85px;
+    height: 30px;
+    background-color: #9370DB;
     color: white;
 }
 
 .btn-submit:hover {
-    background-color: #0056b3;
+    background-color: #8A2BE2;
 }
 
 .btn-cancel {
@@ -163,14 +168,14 @@ footer {
 /* 预订列表样式 */
 .booking-list {
     background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0;
+    border-radius: 6px;
+    box-shadow: 1 2px 4px rgba(0,0,0,0.1);
 }
 
 .booking-list h3 {
     margin-bottom: 1rem;
-    color: #4a90e2;
+    color: #9370DB;
 }
 
 #bookings-list {
@@ -179,7 +184,7 @@ footer {
 
 #bookings-list li {
     border-bottom: 1px solid #eee;
-    padding: 0.5rem 0;
+    padding: 0;
 }
 
 #bookings-list li:last-child {
@@ -192,25 +197,36 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: #ffffff;
     display: flex;
     justify-content: space-around;
-    padding: 10px 0;
+    padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-btn {
+    width: 28px;
+    height: 28px;
     background-color: transparent;
     border: none;
-    padding: 10px;
     font-size: 16px;
     text-decoration: none;
     color: #333;
 }
 
 .nav-btn.active {
-    color: #3498db;
-    font-weight: bold;
+    background-color: #E6E6FA;
+    border-radius: 6px;
+    border: 2px solid black;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-icon {
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 1px;
 }
 
 /* 页面样式 */
@@ -245,21 +261,6 @@ footer {
     justify-content: center;
     align-items: flex-end;
     margin-left: 10px;
-}
-
-.btn-icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin: 5px 0px;
-}
-
-.btn-icon img {
-    width: 15px;  /* 调整这个值来改变图标大小 */
-    height: 15px; /* 保持宽高一致 */
-    display: block;
-    margin-bottom: 15px;
 }
 
 /* 在文件末尾添加以下样式 */
@@ -356,10 +357,10 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #ffffff; /* 确保整个项目有白色背景 */
 }
 
@@ -373,15 +374,27 @@ footer {
 }
 
 .booking-main-info {
-    background-color: #f0f8ff; /* 淡蓝色，你可以根据需要调整颜色 */
-    padding: 5px 8px; /* 添加一些内边距，使背景色更明显 */
-    border-radius: 4px; /* 可选：添加圆角 */
-    margin-bottom: 5px; /* 保持与备注之间的间距 */
+    font-weight: bold;
+    display: inline-flex; /* 或者 inline-block，根据需要选择 */
+    background-color: #d7d7f1; /* 淡蓝色背景 */
+    padding: 0; /* 内边距 */
+    border-radius: 4px; /* 圆角 */
+    margin-top: 0.5px;
+    margin-bottom: 3px; /* 与下方内容的间距 */
+    min-width: 100px; /* 最小宽度，根据需要调整 */
+    align-items: center; /* 如果使用 inline-flex，确保内容垂直居中 */
+    justify-content: center; /* 如果使用 inline-flex，确保内容水平居中 */
+}
+
+.booking-dates {
+    font-size: 0.9em;
+    color: black;
+    padding: 0 8px; /* 与主信息的左右内边距保持一致 */
 }
 
 .booking-notes {
-    font-size: 0.9em;
-    color: #666;
+    font-size: 0.8em;
+    color: #7c7979;
     padding: 0 8px; /* 与主信息的左右内边距保持一致 */
 }
 
@@ -394,15 +407,20 @@ footer {
 }
 
 .btn-icon {
-    background: none;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    background: #ffffff;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    padding: 5px;
-    margin: 2px 0;
+    padding: 0;
+    margin-bottom: 5px;
 }
 
 .btn-icon img {
-    width: 20px;
-    height: 20px;
-    display: block;
+    width: 25px;
+    height: 25px;
+    display: flex;
 }
+
