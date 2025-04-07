@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yz | Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0a192f;
+      --secondary-color: #64ffda;
+      --text-color: #ccd6f6;
+      --accent-color: #8892b0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .greeting {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .name {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 2rem;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: transparent;
+      border: 1px solid var(--secondary-color);
+      color: var(--secondary-color);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+      background: rgba(100, 255, 218, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .name {
+        font-size: 3rem;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav>
+      <div class="logo">Yz</div>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="greeting">Hi, my name is</div>
+        <h1 class="name">Yunzhe Zhuang.</h1>
+        <h2 class="title">I build things for the web.</h2>
+        <p class="description">
+          I'm a developer specializing in building creative websites.
+          Currently, I'm focused on building accessible, human-centered products.
+        </p>
+        <a href="projects.html" class="cta-button">View My Work</a>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

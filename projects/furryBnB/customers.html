@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Boarding Management System - Customer Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Furry Boarding</h1>
+    </header>
+
+    <main>
+        <section id="customers">
+            <h2>Customer Management</h2>
+            <form id="customer-form">
+                <div class="form-group">
+                    <label for="pet-name">Pet Name:</label>
+                    <input type="text" id="pet-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-name">Owner Name:</label>
+                    <input type="text" id="owner-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address"></textarea>
+                </div>
+                <input type="hidden" id="editing-id">
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">Add Customer</button>
+                    <button type="button" id="cancel-btn" style="display:none;">Cancel</button>
+                </div>
+            </form>
+            <div class="customers-list-container">
+                <h3>Customer List</h3>
+                <ul id="customers-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <nav id="bottom-nav">
+        <a href="index.html" class="nav-btn">
+            <img src="icon/booking.png" alt="Bookings" class="nav-icon">
+        </a>
+        <a href="customers.html" class="nav-btn active">
+            <img src="icon/customers.png" alt="Customers" class="nav-icon">
+        </a>
+        <a href="calendar.html" class="nav-btn">
+            <img src="icon/calendar.png" alt="Calendar" class="nav-icon">
+        </a>
+    </nav>
+
+    <script src="customers.js"></script>
+</body>
+
+</html>

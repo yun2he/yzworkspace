@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Boarding Management System - Bookings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Furry Boarding</h1>
+    </header>
+
+    <main id="main-content">
+        <section id="bookings" class="page active">
+            <h2>Booking Management</h2>
+            <form id="booking-form" class="booking-form">
+                <h3>New Booking</h3>
+                <div class="form-group">
+                    <label for="customer-select">Select Customer:</label>
+                    <select id="customer-select" required>
+                        <option value="">-- Select Customer --</option>
+                        <option value="new">-- New Customer --</option>
+                        <!-- Other customer options will be added dynamically via JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pet-name">Pet Name:</label>
+                    <input type="text" id="pet-name" name="pet-name" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="owner-name">Owner Name:</label>
+                    <input type="text" id="owner-name" name="owner-name" required readonly>
+                </div>
+                <!-- Other booking form fields -->
+                <div class="form-group">
+                    <label for="start-date">Start Date:</label>
+                    <input type="date" id="start-date" name="start-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="end-date">End Date:</label>
+                    <input type="date" id="end-date" name="end-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes"></textarea>
+                </div>
+                <input type="hidden" id="editing-index" value="">
+                <button type="submit" class="btn-submit" id="submit-btn">Submit Booking</button>
+                <button type="button" class="btn-cancel" id="cancel-btn" style="display:none;">Cancel Edit</button>
+            </form>
+
+            <div class="booking-list">
+                <h3>Existing Bookings</h3>
+                <div class="booking-controls">
+                    <select id="sort-by">
+                        <option value="startDate">Start Date</option>
+                        <option value="endDate">End Date</option>
+                        <option value="petName">Pet Name</option>
+                    </select>
+                    <button id="sort-order">↓</button>
+                    <select id="filter-by">
+                        <option value="all">All Bookings</option>
+                        <option value="current">Current Bookings</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="past">Past</option>
+                    </select>
+                </div>
+                <ul id="bookings-list">
+                    <!-- Booking items will be added dynamically via JavaScript -->
+                </ul>
+            </div>
+            <!-- All booking related content goes here -->
+        </section>
+    </main>
+
+    <nav id="bottom-nav">
+        <a href="index.html" class="nav-btn active">
+            <img src="icon/booking.png" alt="Bookings" class="nav-icon">
+        </a>
+        <a href="customers.html" class="nav-btn">
+            <img src="icon/customers.png" alt="Customers" class="nav-icon">
+        </a>
+        <a href="calendar.html" class="nav-btn">
+            <img src="icon/calendar.png" alt="Calendar" class="nav-icon">
+        </a>
+    </nav>
+
+    <script src="bookings.js"></script>
+</body>
+
+</html>

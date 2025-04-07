@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Yz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #64ffda;
+            --text-color: #ccd6f6;
+            --accent-color: #8892b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .projects-header {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .projects-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .projects-header p {
+            color: var(--accent-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">Yz</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+        <section class="projects-header">
+            <h1>My Projects</h1>
+            <p>Here are some of the projects I've worked on. Each one represents a different aspect of my skills and
+                interests.</p>
+        </section>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>YouTube Clone</h3>
+                <p>A responsive YouTube interface clone built with HTML and CSS, showcasing modern web design
+                    principles.</p>
+                <a href="projects/youtube-clone/index.html" class="project-link">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>App Store</h3>
+                <p>A modern app store interface with dynamic content loading and responsive design.</p>
+                <a href="projects/appStore/index.html" class="project-link">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>E-Shop</h3>
+                <p>An e-commerce platform featuring product listings, shopping cart functionality, and responsive
+                    design.</p>
+                <a href="projects/eShop/index.html" class="project-link">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>FurryBnB</h3>
+                <p>A pet-friendly accommodation booking platform with a focus on user experience.</p>
+                <a href="projects/furryBnB/index.html" class="project-link">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>DOM Projects</h3>
+                <p>A collection of interactive web applications demonstrating DOM manipulation techniques.</p>
+                <a href="projects/dom-projects.html" class="project-link">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Rock Paper Scissors</h3>
+                <p>A classic game implementation with modern UI and interactive features.</p>
+                <a href="projects/rock-paper-scissors.html" class="project-link">View Project</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
