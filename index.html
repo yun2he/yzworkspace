@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yz | Personal Portfolio</title>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232B2B4D'/><path d='M8 8L16 16L24 8' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M16 16L16 24' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M8 24L24 24' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M24 8L8 24' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
@@ -47,6 +51,8 @@
       function toggleMenu() {
         navLinks.classList.toggle('active');
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        // Toggle button icon
+        mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
       }
 
       mobileMenuBtn.addEventListener('click', toggleMenu);

@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Yz Portfolio</title>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232B2B4D'/><path d='M8 8L16 16L24 8' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M16 16L16 24' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M8 24L24 24' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M24 8L8 24' stroke='%2300B4D8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
@@ -12,6 +16,13 @@
   <link rel="stylesheet" href="style.css">
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS
+    window.onload = function() {
+      emailjs.init("-gDfwN9Q0sZwp8Qw6");
+      console.log("EmailJS initialized");
+    }
+  </script>
 </head>
 
 <body>
@@ -82,11 +93,6 @@
   </div>
 
   <script>
-    // Initialize EmailJS
-    (function() {
-      emailjs.init("-gDfwN9Q0sZwp8Qw6");
-    })();
-
     // Handle form submission
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -99,17 +105,21 @@
         from_name: document.getElementById('name').value,
         from_email: document.getElementById('email').value,
         subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
+        message: document.getElementById('message').value,
+        reply_to: document.getElementById('email').value
       };
 
+      console.log('Sending email with params:', templateParams);
+
       emailjs.send('service_9870rgp', 'template_ykaevz6', templateParams)
-        .then(function() {
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
           alert('Message sent successfully!');
           document.getElementById('contact-form').reset();
         })
         .catch(function(error) {
-          alert('Failed to send message. Please try again.');
-          console.error('Error:', error);
+          console.error('FAILED...', error);
+          alert('Failed to send message. Please try again. Error: ' + error.text);
         })
         .finally(function() {
           submitBtn.disabled = false;
@@ -126,6 +136,8 @@
       function toggleMenu() {
         navLinks.classList.toggle('active');
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        // Toggle button icon
+        mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
       }
 
       mobileMenuBtn.addEventListener('click', toggleMenu);
